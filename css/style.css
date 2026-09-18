@@ -95,7 +95,6 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 .hero{
   position:relative;
   min-height:100vh;
-  display:flex; align-items:flex-end;
   padding-top:var(--header-h);
   overflow:hidden;
   background:
@@ -110,39 +109,63 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1fr minmax(0,560px) 300px;
-  align-items:end;
+  grid-template-columns:1fr 300px;
+  align-content:end;
+  min-height:calc(100vh - var(--header-h));
   gap:0 40px;
   position:relative;
   z-index:2;
 }
 
-.hero-lead{ padding-bottom:16vh; }
+/* Portrait sits behind everything, centered in the hero, full-bleed */
+.hero-portrait{
+  position:absolute;
+  inset:0 0 0 0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:0;
+  pointer-events:none;
+}
+.hero-portrait img{
+  height:88%;
+  max-height:820px;
+  width:auto;
+  filter:drop-shadow(0 0 70px rgba(0,0,0,.65));
+  opacity:.9;
+}
+
+.hero-lead{ padding-bottom:16vh; position:relative; z-index:2; }
 .rule{ display:block; width:130px; height:5px; background:var(--text); margin-bottom:34px; }
 
 .hero-lead h1{
   font-size:clamp(2.6rem, 5.4vw, 4.6rem);
   font-weight:700;
   margin-bottom:24px;
+  text-shadow:0 2px 24px rgba(0,0,0,.55);
 }
-.hero-sub{ color:var(--muted); max-width:34ch; font-size:1.02rem; margin-bottom:38px; }
+.hero-sub{
+  color:var(--muted); max-width:34ch; font-size:1.02rem; margin-bottom:38px;
+  text-shadow:0 2px 16px rgba(0,0,0,.6);
+}
 
 .scroll-dot{
   width:104px; height:104px; border-radius:50%;
   background:var(--accent); color:#04120A;
   display:grid; place-items:center;
   transition:transform .25s ease, background .25s ease;
+  position:relative; z-index:2;
+  pointer-events:auto;
 }
 .scroll-dot svg{ width:38px; height:38px; }
 .scroll-dot:hover{ background:#1ECB7A; transform:translateY(4px); }
 
-.hero-portrait{ align-self:end; position:relative; }
-.hero-portrait img{
-  width:100%; height:auto;
-  filter:drop-shadow(0 0 70px rgba(0,0,0,.65));
+.hero-panel{
+  padding-bottom:12vh; position:relative; z-index:2;
+  pointer-events:auto;
 }
-
-.hero-panel{ padding-bottom:12vh; }
+.panel-block{ background:rgba(8,18,13,.72); backdrop-filter:blur(6px); padding:26px 22px; }
+.panel-block:first-child{ padding-top:26px; }
 .panel-block{ padding:26px 0; border-bottom:1px solid var(--line); }
 .panel-block:first-child{ padding-top:0; }
 .panel-block:last-child{ border-bottom:0; }
@@ -228,6 +251,28 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 }
 .project:hover{ border-color:rgba(23,178,106,.5); background:var(--card-hi); }
 
+/* Photo or local <video> at the top of a project card */
+.project-media{
+  width:calc(100% + 68px);
+  margin:-34px -34px 26px;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  background:var(--ink);
+  border-bottom:1px solid var(--line);
+}
+/* YouTube/Vimeo iframe wrapper, keeps a 16:9 box */
+.project-media--embed{
+  width:calc(100% + 68px);
+  margin:-34px -34px 26px;
+  position:relative;
+  aspect-ratio:16/9;
+  background:var(--ink);
+  border-bottom:1px solid var(--line);
+}
+.project-media--embed iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+
 .project-meta{ display:flex; align-items:center; gap:14px; margin-bottom:22px; }
 .tag{
   font-family:var(--display); font-size:.7rem; font-weight:700;
@@ -311,7 +356,7 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 /* ---------------- Responsive ---------------- */
 @media (max-width:1080px){
   .hero-grid{ grid-template-columns:1fr 280px; }
-  .hero-portrait{ display:none; }
+  .hero-portrait img{ height:70%; opacity:.55; }
   .hero-lead{ padding-bottom:14vh; }
   .skills{ grid-template-columns:repeat(2,1fr); }
   .skill-col:nth-child(2){ border-right:0; padding-right:0; }
@@ -334,6 +379,8 @@ ul,ol{ margin:0; padding:0; list-style:none; }
   .nav-toggle{ display:flex; }
 
   .hero{ min-height:auto; padding-bottom:90px; }
+  .hero-portrait{ align-items:center; }
+  .hero-portrait img{ height:50%; opacity:.35; }
   .hero-grid{ grid-template-columns:1fr; gap:48px; }
   .hero-lead{ padding-top:70px; padding-bottom:0; }
   .hero-panel{ padding-bottom:0; }
