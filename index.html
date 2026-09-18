@@ -149,6 +149,27 @@
     <div class="projects">
 
       <article class="project">
+        <div class="gallery" data-gallery>
+          <button class="gallery-main" type="button" aria-label="Open larger image">
+            <img data-role="main-img" src="assets/projects/solar-cad-1.jpg"
+                 alt="Contactor driver board, Altium CAD render, top view" />
+          </button>
+          <div class="gallery-thumbs" role="tablist" aria-label="Project photos">
+            <button class="gallery-thumb is-active" type="button" data-full="assets/projects/solar-cad-1.jpg"
+                    aria-label="View image 1">
+              <img src="assets/projects/solar-cad-1.jpg" alt="" />
+            </button>
+            <button class="gallery-thumb" type="button" data-full="assets/projects/solar-cad-2.jpg"
+                    aria-label="View image 2">
+              <img src="assets/projects/solar-cad-2.jpg" alt="" />
+            </button>
+            <button class="gallery-thumb" type="button" data-full="assets/projects/solar-cad-3.jpg"
+                    aria-label="View image 3">
+              <img src="assets/projects/solar-cad-3.jpg" alt="" />
+            </button>
+          </div>
+        </div>
+
         <div class="project-meta">
           <span class="tag tag-live">Active</span>
           <span class="project-date">Mar 2026 — Present</span>
@@ -165,7 +186,24 @@
         <ul class="chips">
           <li>Altium</li><li>MOSFET gate drivers</li><li>High-voltage</li><li>Oscilloscope bring-up</li>
         </ul>
+
+        <div class="project-video-block">
+          <p class="video-label">The car on track</p>
+          <video class="project-video" controls preload="metadata" poster="assets/projects/solar-drive-poster.jpg">
+            <source src="assets/projects/solar-drive.mp4" type="video/mp4" />
+            Your browser doesn't support embedded video.
+            <a href="assets/projects/solar-drive.mp4">Download the clip</a> instead.
+          </video>
+        </div>
       </article>
+
+      <!-- Lightbox: shared by every project gallery on the page -->
+      <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">&lsaquo;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">&rsaquo;</button>
+      </div>
 
       <article class="project">
         <div class="project-meta">
