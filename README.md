@@ -141,9 +141,17 @@ portfolio/
 │       ├── fusion-1.jpg
 │       ├── fusion-2.jpg
 │       ├── fusion-3.jpg
-│       └── fusion-poster.jpg
+│       ├── fusion-poster.jpg
+│       ├── tped-1.jpg
+│       ├── tped-2.jpg
+│       ├── tped-3.jpg
+│       ├── tped-poster.jpg
+│       ├── dsp-1.jpg
+│       ├── dsp-1.jpg
+│       ├── dsp-1.jpg
+│       └── dsp-poster.jpg
 └── README.md
-
+```
 ## Contact
 
 **Devin Zarate**  
