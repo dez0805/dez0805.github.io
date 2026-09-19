@@ -1,108 +1,162 @@
 # Devin Zarate — Electrical Engineering Portfolio
 
-A static portfolio site. No build step, no dependencies — plain HTML, CSS, and JavaScript.
+Personal engineering portfolio showcasing my work in electrical engineering,
+embedded systems, PCB design, motor control, and digital signal processing.
 
-```
+## About Me
+
+I'm an Electrical Engineering student at the University of California, Irvine,
+specializing in Digital Signal Processing. My interests are centered around
+hardware design and embedded systems, particularly PCB design, motor control,
+hardware bring-up, and system integration.
+
+This portfolio documents several of the engineering projects I've worked on,
+including custom PCBs, high-voltage vehicle electronics, embedded motor-control
+systems, industrial safety logic, and digital signal processing.
+
+## Featured Projects
+
+### UCI Solar Car — 96V Contactor Driver & Precharge Board
+
+As a Motor Engineer for UCI Solar Car, I work on the electrical systems supporting
+the vehicle's high-voltage drivetrain.
+
+I designed and fabricated a custom contactor driver PCB responsible for controlling
+the DC-DC, precharge, and main 96V contactors while interfacing with low-voltage
+control electronics. The system includes a precharge circuit designed to safely
+limit inrush current into the motor controller's capacitor bank.
+
+**Technologies:** Altium Designer, PCB Design, MOSFET Gate Drivers, High-Voltage
+Electronics, SMD Soldering, Oscilloscope Testing
+
+---
+
+### FUSION Engineering Project — Fire Extinguishing Rover
+
+Designed an embedded control system for a remotely operated fire-extinguishing
+rover.
+
+The system uses an ESP32-S3 to control multiple DC motors, servos, and a water pump.
+I developed the motor-control hardware and power architecture while integrating
+wireless controller input through embedded C++ firmware.
+
+**Technologies:** ESP32-S3, KiCad, C++, Bluepad32, H-Bridge Motor Drivers,
+Embedded Systems
+
+---
+
+### Theme Park Engineering Design — Ride Safety Architecture
+
+Developed controls and safety systems for a competition ride design.
+
+The system uses redundant sensors and control logic to monitor ride conditions,
+detect faults, and trigger Emergency Stop behavior when unsafe conditions are
+detected. My work includes sensor integration, safety interlocks, and PLC-based
+ride control logic.
+
+**Technologies:** PLC Ladder Logic, Sensor Integration, Functional Safety,
+Motor Control, Embedded Hardware
+
+---
+
+### Invisible Fence — Spatial Audio Filtering
+
+Designed a digital signal processing system in MATLAB for isolating a desired
+audio source while suppressing interfering frequency content.
+
+The project uses FFT-based spectral analysis, digital filtering, and convolution
+to analyze signals and evaluate filtering performance in both the time and
+frequency domains.
+
+**Technologies:** MATLAB, FFT, LTI Systems, Digital Filters, Signal Processing
+
+## Technical Skills
+
+**Hardware**
+- PCB schematic capture and layout
+- PCB bring-up and debugging
+- SMD soldering and rework
+- Power regulation
+- Motor drivers and H-bridge circuits
+- High-voltage control systems
+- Oscilloscope and bench testing
+
+**Programming**
+- C
+- C++
+- Python
+- MATLAB
+- Java
+- PLC Ladder Logic
+
+**Tools & Platforms**
+- Altium Designer
+- KiCad
+- LTspice
+- ESP32
+- Arduino
+- CAN
+- UART
+- I2C
+
+## Portfolio Features
+
+The website includes:
+
+- Responsive desktop and mobile design
+- Interactive project image galleries
+- Full-screen project image viewer
+- Embedded project demonstration videos
+- Downloadable resume
+- Project descriptions and technical details
+- Contact information and social links
+
+## Built With
+
+The portfolio is built as a lightweight static website using:
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+
+No frontend frameworks or build tools are required.
+
+## Project Structure
+
+```text
 portfolio/
 ├── index.html
-├── css/style.css
-├── js/main.js
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
 ├── assets/
-│   ├── profile.svg      ← replace with your photo
-│   └── resume.pdf       ← add your resume here
+│   ├── profile.png
+│   ├── resume.pdf
+│   └── projects/
+│       ├── solar-cad-1.jpg
+│       ├── solar-cad-2.jpg
+│       ├── solar-cad-3.jpg
+│       ├── solar-drive-poster.jpg
+│       ├── fusion-1.jpg
+│       ├── fusion-2.jpg
+│       ├── fusion-3.jpg
+│       └── fusion-poster.jpg
 └── README.md
-```
 
-## Publishing on GitHub Pages
+## Contact
 
-1. Create a new repository. Naming it `yourusername.github.io` gets you the clean
-   URL `https://yourusername.github.io`; any other name gives you
-   `https://yourusername.github.io/repo-name`.
-2. Upload everything in this folder to the repository root — `index.html` must sit
-   at the top level, not inside a subfolder.
-3. In the repo, go to **Settings → Pages**, set **Source** to *Deploy from a branch*,
-   pick `main` and `/ (root)`, and save.
-4. Wait about a minute, then load the URL Pages shows you.
+**Devin Zarate**  
+Electrical Engineering — University of California, Irvine
 
-From the command line instead:
+- LinkedIn: linkedin.com/in/devin-zarate/
+- GitHub: github.com/dez0805
+- Portfolio: [Add portfolio URL]
 
-```bash
-cd portfolio
-git init
-git add .
-git commit -m "Portfolio site"
-git branch -M main
-git remote add origin https://github.com/YOURUSERNAME/YOURREPO.git
-git push -u origin main
-```
+## License
 
-## Before you publish — five things to change
+This repository contains my personal portfolio and engineering project
+documentation. Project images, designs, and written content are my own unless
+otherwise noted.
 
-**1. Your photo.** Drop a portrait into `assets/` and update one line in `index.html`:
-
-```html
-<img src="assets/profile.png" alt="Portrait of Devin Zarate" />
-```
-
-A cutout with the background removed matches the layout best (remove.bg or
-Photoshop's subject select). Shoot for roughly 900×1300px, portrait orientation.
-If you keep a rectangular photo it still works, it just won't float the same way.
-
-**2. Your resume.** Save the PDF as `assets/resume.pdf`. The download button in the
-Education section already points there.
-
-**3. Your GitHub link.** In `index.html`, the GitHub icon in the hero currently
-points at `https://github.com/` — swap in your profile URL.
-
-**4. Project details.** The bracketed numbers we talked about (layer count,
-capacitance, inrush current, dB attenuation) will make these project descriptions
-land harder. Add them in the `<article class="project">` blocks.
-
-**5. Project photos.** Board shots, scope captures, and CAD renders are the single
-biggest upgrade available to a hardware portfolio. To add one, put an image at the
-top of a project card:
-
-```html
-<article class="project">
-  <img src="assets/solar-pcb.jpg" alt="Contactor driver PCB" style="margin-bottom:22px" />
-  <div class="project-meta">…
-```
-
-## Contact form
-
-GitHub Pages serves static files only, so there's no server to receive a form post.
-The form currently opens the visitor's email client with their message prefilled —
-this works everywhere with zero setup.
-
-To collect submissions in your inbox instead, create a free form endpoint at
-[formspree.io](https://formspree.io) and change the form tag in `index.html`:
-
-```html
-<form class="contact-form" id="contactForm" action="https://formspree.io/f/YOURID" method="POST">
-```
-
-Then delete the `form.addEventListener("submit", …)` block in `js/main.js` so the
-browser submits normally.
-
-## Colors
-
-Every color lives in one place — the `:root` block at the top of `css/style.css`.
-Change `--accent` to shift the whole site's highlight color.
-
-| Token | Value | Used for |
-|---|---|---|
-| `--ink` | `#08120D` | Page background |
-| `--panel` | `#0E1C15` | Alternating sections |
-| `--card` | `#132419` | Project cards, form |
-| `--accent` | `#17B26A` | Links, stats, highlights |
-| `--text` | `#EDF3EF` | Body text |
-| `--muted` | `#94AB9C` | Secondary text |
-
-## Notes
-
-- Fonts load from Google Fonts (Space Grotesk + Inter). Works offline-ish via
-  fallbacks, but the design assumes those two.
-- Responsive down to small phones; the portrait hides below 1080px so the text
-  and side panel keep their space.
-- Keyboard focus is visible, there's a skip link, and `prefers-reduced-motion`
-  turns off the scroll animations.
+© 2026 Devin Zarate
