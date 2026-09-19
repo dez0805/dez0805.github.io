@@ -157,9 +157,9 @@ portfolio/
 **Devin Zarate**  
 Electrical Engineering — University of California, Irvine
 
-- LinkedIn: linkedin.com/in/devin-zarate/
-- GitHub: github.com/dez0805
-- Portfolio: [Add portfolio URL]
+- [LinkedIn](linkedin.com/in/devin-zarate/) 
+- [GitHub](github.com/dez0805)
+- [Portfolio](dez0805.github.io)
 
 ## License
 
